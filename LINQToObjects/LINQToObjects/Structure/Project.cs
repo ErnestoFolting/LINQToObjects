@@ -34,7 +34,7 @@ namespace LINQToObjects.Structure
         }
         public override string ToString()
         {
-            return string.Format("Code:\n {0} \nName:\n{1} \n Cost: \n {2} \n StartTime: \n {3} \n EndTime: \n {4} \n Participants: \n {5}", code,name,cost,startTime,endTime,string.Join(", ",participants));
+            return string.Format("Code:\n{0}\nName:\n{1}\nCost:\n{2}\nStartTime:\n{3}\nEndTime:\n{4}\nParticipants:\n\n{5}\n", code,name,cost,startTime,endTime,string.Join(" ",participants));
         }
     }
 }

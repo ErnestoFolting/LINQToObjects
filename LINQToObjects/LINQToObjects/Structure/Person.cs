@@ -11,7 +11,7 @@ namespace LINQToObjects.Structure
         public string surname { get; set; }
         public string name { get; set; }
         public int age { get; set; }
-        public List<Project> participateIn { get; set; }
+        public List<Project> participateIn { get; set; } = new List<Project>();
         public Person(string Surname,string Name, int age)
         {
             this.surname = Surname;
@@ -20,7 +20,11 @@ namespace LINQToObjects.Structure
         }
         public override string ToString()
         {
-            return string.Format("Surname:\n {0} \nName:\n{1} \n Age: \n {2} \n Projects: \n {3}", surname, name, age,string.Join(", ", participateIn));
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(string.Format("Surname:\n{0}\nName:\n{1}\nAge:\n{2}\n", surname, name, age));
+            var names = participateIn.Select(p => p.name);
+            sb.AppendLine(string.Format("Projects:\n{0}\n", string.Join(" ", names)));
+            return sb.ToString();
         }
     }
 }

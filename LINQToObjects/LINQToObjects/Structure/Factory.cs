@@ -19,7 +19,8 @@ namespace LINQToObjects.Structure
         }
         public override string ToString()
         {
-            return string.Format("Name:\n {0} \nProjects:\n{1}", name, string.Join(", ", projects));
+            var names = projects.Select(p => p.name);
+            return string.Format("Name:\n{0}\nProjects:\n{1}\n", name, string.Join(", ", names));
         }
     }
 }
