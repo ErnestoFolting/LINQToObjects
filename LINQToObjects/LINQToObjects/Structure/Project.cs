@@ -14,7 +14,9 @@ namespace LINQToObjects.Structure
         public DateTime startTime { get; set; }
         public DateTime endTime { get; set; }
 
-        public List<Person> participants = new List<Person>();
+        public Factory factory { get; set; }
+
+        public List<Person> participants { get; set; } = new List<Person>();
 
         public Project(string code,string name,double cost,DateTime startTime,DateTime endTime,List<Person> participants)
         {
