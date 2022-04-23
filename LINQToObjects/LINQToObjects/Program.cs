@@ -86,6 +86,7 @@ namespace LINQToObjects
             List<Project> projects = new List<Project> { project1,project2,project3,project4 };
 
             // 1. Participants in project
+<<<<<<< HEAD
             Console.WriteLine("*****1. Participants in project");
 
             var q1 = project1.participants.Select(p => p);
@@ -118,28 +119,64 @@ namespace LINQToObjects
             // 6. Ordered by ascending of number of their projcets and surnames people
             // who are involved in more than 1 project 
             Console.WriteLine("*****6. Ordered by ascending of number of their projcets and surnames people who are involved in more than 1 project");
+=======
+            var q1 = project1.participants.Select(p => p);
+            //print(q1);
+
+            // 2. Projects names in factory
+            var q2 = factory1.projects.Select(p => p.name);
+            //print(q2);
+
+            // 3. Person's project codes and names
+            var q3 = person3.participateIn.Select(p => new { p.code, p.name });
+            //print(q3);
+
+            // 4. Factories with more than 1 project 
+            var q4 = factories.Where(f => f.projects.Count > 1);
+            //print(q4);
+
+            // 5. People ordered by ascending of their surnames
+            var q5 = people.OrderBy(p => p.surname);
+            //print(q5);
+
+            // 6. Ordered by ascending of number of their projcets and surnames people
+            // who are involved in more than 1 project 
+>>>>>>> main
 
             var q6 = people
                 .Where(p => p.participateIn.Count > 1)
                 .OrderBy(p => p.participateIn.Count)
                 .ThenBy(p => p.surname);
+<<<<<<< HEAD
             print(q6);
 
             // 7. Name and cost of top 1 cost project
             Console.WriteLine("*****7. Name and cost of top 1 cost project");
+=======
+            //print(q6);
+
+            // 7. Name and cost of top 1 cost project
+>>>>>>> main
 
             var q7 = projects
                 .OrderByDescending(p => p.cost)
                 .Select(p => new { p.name, p.cost })
                 .First();
+<<<<<<< HEAD
             Console.WriteLine(q7);
 
             // 8. Factories join projects 
             Console.WriteLine("*****8. Factories join projects");
+=======
+            //Console.Write(q7);
+
+            // 8. Factories join projects 
+>>>>>>> main
 
             var q8 = factories
                 .Join(projects, f => f, p => p.factory, 
                 (f,p) => new { Factory = f.name, Project = p.name});
+<<<<<<< HEAD
             print(q8);
 
             // 9. Projects ordered by ascending of execution time
@@ -205,6 +242,13 @@ namespace LINQToObjects
                        where p.age < 25
                        select p);
             print(q15);
+=======
+            //print(q8);
+
+            // 9. Projects ordered by ascending of execution time
+
+
+>>>>>>> main
 
         }
         public static void print<T>(IEnumerable<T> lst)
